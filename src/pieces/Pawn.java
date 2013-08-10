@@ -1,5 +1,6 @@
 package pieces;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -10,6 +11,12 @@ public class Pawn extends Piece {
 
 	@Override
 	List<Position> getPossibleMoves() {
-		return null;
+		List<Position> pawnMoves = new ArrayList<Position>();
+		if (color == Color.WHITE) {
+			pawnMoves.add(position.move(Direction.NORTH));
+		} else if(color == Color.BLACK) {
+			pawnMoves.add(position.move(Direction.SOUTH));
+		}
+		return pawnMoves;
 	}
 }
