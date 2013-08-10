@@ -60,11 +60,16 @@ public class Board {
 		Piece targetPiece = findPiece(source);
 		Piece sourcePiece = targetPiece.leave();
 		
-		Rank sourceRank = ranks.get(source.getY());
-		sourceRank.move(sourcePiece, source);
+		if(targetPiece.isEmpty()) {
+			System.out.println("impossible move!");
+		} else {
+			Rank sourceRank = ranks.get(source.getY());
+			sourceRank.move(sourcePiece, source);
+			
+			Rank targetRank = ranks.get(target.getY());
+			targetRank.move(targetPiece, target);
+		}
 		
-		Rank targetRank = ranks.get(target.getY());
-		targetRank.move(targetPiece, target);
 	}
 	
 	String generateRank(int rankIndex) {

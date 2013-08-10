@@ -77,6 +77,10 @@ public abstract class Piece {
 	}
 	
 	abstract List<Position> getPossibleMoves();
+
+	public boolean isEmpty() {
+		return type == Type.EMPTY;
+	}
 	
 	@Override
 	public int hashCode() {
@@ -115,4 +119,5 @@ public abstract class Piece {
 		return "Piece [color=" + color + ", type=" + type + ", position="
 				+ position + "]";
 	}
+
 }
