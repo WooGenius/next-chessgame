@@ -76,7 +76,7 @@ public abstract class Piece {
 		return this;
 	}
 	
-	abstract List<Position> getPossibleMoves();
+	public abstract List<Position> getPossibleMoves();
 
 	public boolean isEmpty() {
 		return type == Type.EMPTY;

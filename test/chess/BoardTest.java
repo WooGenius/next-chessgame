@@ -102,6 +102,18 @@ public class BoardTest extends TestCase {
 		assertEquals(new Pawn(Color.WHITE, source), sourcePiece);
 		assertEquals(new Pawn(Color.WHITE, target), targetPiece);
 		System.out.println(board.generateBoard());
+	}
+	
+	public void testMoveByPiece() throws Exception {
+		board.initialize();
+		Position source = new Position("a2");
+		Position target = new Position("b3");
+		Piece sourcePiece = board.findPiece(source);
+		Piece targetPiece = board.findPiece(target);
 		
+		board.movePiece(source, target);
+		assertEquals(new Pawn(Color.WHITE, source), sourcePiece);
+		assertEquals(new Empty(Color.NOCOLOR, target), targetPiece);
+		System.out.println(board.generateBoard());
 	}
 }

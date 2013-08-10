@@ -86,6 +86,12 @@ public class Board {
 			System.out.println("cant move to same color piece");
 			return true;
 		}
+		// this piece cant move to there
+		List<Position> possibleMoves = findPiece(source).getPossibleMoves();
+		if (!possibleMoves.contains(target)) {
+			System.out.println("this piece cant move to there");
+			return true;
+		}
 		return false;
 	}
 

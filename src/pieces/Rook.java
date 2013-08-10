@@ -8,7 +8,7 @@ public class Rook extends Piece {
 	}
 
 	@Override
-	List<Position> getPossibleMoves() {
+	public List<Position> getPossibleMoves() {
 		PositionController posCon = new PositionController(position);
 		List<Position> rookMoves = posCon.findsLinearPositionAll();
 		return rookMoves;

@@ -9,7 +9,7 @@ public class Queen extends Piece {
 	}
 
 	@Override
-	List<Position> getPossibleMoves() {
+	public List<Position> getPossibleMoves() {
 		PositionController posCon = new PositionController(position);
 		List<Position> queenMoves = posCon.findsQueenPositionAll();
 		return queenMoves;
