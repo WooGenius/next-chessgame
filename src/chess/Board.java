@@ -62,6 +62,8 @@ public class Board {
 		
 		if(targetPiece.isEmpty()) {
 			System.out.println("impossible move!");
+		} else if (!target.isValid()) {
+			System.out.println("invalid target position");
 		} else {
 			Rank sourceRank = ranks.get(source.getY());
 			sourceRank.move(sourcePiece, source);
