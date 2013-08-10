@@ -33,4 +33,8 @@ public enum Direction {
 	public static Direction[] diagonalDirection() {
 		return new Direction[] { NORTHEAST, SOUTHEAST, SOUTHWEST, NORTHWEST };
 	}
+	
+	public static Direction[] everyDirection() {
+		return new Direction[] { NORTH, EAST, SOUTH, WEST, NORTHEAST, SOUTHEAST, SOUTHWEST, NORTHWEST };
+	}
 }

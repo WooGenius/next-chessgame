@@ -27,4 +27,13 @@ public class PositionController {
 		}
 		return positions;
 	}
+
+	public List<Position> findQueenPositionAll() {
+		Direction[] everyDirection = Direction.everyDirection();
+		List<Position> positions = new ArrayList<Position>();
+		for (Direction direction : everyDirection) {
+			positions.addAll(position.findsPosition(direction));
+		}
+		return positions;
+	}
 }

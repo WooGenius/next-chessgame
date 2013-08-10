@@ -24,4 +24,14 @@ public class PositionControllerTest extends TestCase {
 		List<Position> positions = controller.findsDiagonalPositionAll();
 		assertEquals(11, positions.size());
 	}
+	
+	public void testFindQueenPositionAll() throws Exception {
+		int startX = 4;
+		int startY = 5;
+		Position position = new Position(startX, startY);
+		
+		PositionController controller = new PositionController(position);
+		List<Position> positions = controller.findQueenPositionAll();
+		assertEquals(25, positions.size());
+	}
 }
