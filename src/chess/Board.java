@@ -60,20 +60,35 @@ public class Board {
 		Piece targetPiece = findPiece(source);
 		Piece sourcePiece = targetPiece.leave();
 		
-		if(targetPiece.isEmpty()) {
-			System.out.println("impossible move!");
-		} else if (!target.isValid()) {
-			System.out.println("invalid target position");
-		} else {
+		if(invalidMove(source, target)) {
+			return;
+		}
 			Rank sourceRank = ranks.get(source.getY());
 			sourceRank.move(sourcePiece, source);
 			
 			Rank targetRank = ranks.get(target.getY());
 			targetRank.move(targetPiece, target);
-		}
-		
 	}
 	
+	private boolean invalidMove(Position source, Position target) {
+		// empty piece
+		if(findPiece(source).isEmpty()) {
+			System.out.println("empty piece cant move");
+			return true;
+		}
+		// invalid target
+		if (!target.isValid()) {
+			System.out.println("cant move to invalid target position");
+			return true;
+		}
+		// same color position
+		if (findPiece(target).getColor() == findPiece(source).getColor()) {
+			System.out.println("cant move to same color piece");
+			return true;
+		}
+		return false;
+	}
+
 	String generateRank(int rankIndex) {
 		Rank rank = ranks.get(rankIndex);
 		StringBuilder sb = new StringBuilder();

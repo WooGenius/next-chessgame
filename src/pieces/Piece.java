@@ -82,6 +82,10 @@ public abstract class Piece {
 		return type == Type.EMPTY;
 	}
 	
+	public Color getColor() {
+		return color;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -119,5 +123,4 @@ public abstract class Piece {
 		return "Piece [color=" + color + ", type=" + type + ", position="
 				+ position + "]";
 	}
-
 }
