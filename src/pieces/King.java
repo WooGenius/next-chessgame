@@ -10,7 +10,7 @@ public class King extends Piece {
 	@Override
 	List<Position> getPossibleMoves() {
 		PositionController posCon = new PositionController(position);
-		List<Position> kingMoves = posCon.findKingPositionAll();
+		List<Position> kingMoves = posCon.findsKingPositionAll();
 		return kingMoves;
 	}
 }

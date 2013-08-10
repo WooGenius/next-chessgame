@@ -11,11 +11,12 @@ public class Pawn extends Piece {
 
 	@Override
 	List<Position> getPossibleMoves() {
+		PositionController posCon = new PositionController(position);
 		List<Position> pawnMoves = new ArrayList<Position>();
 		if (color == Color.WHITE) {
-			pawnMoves.add(position.move(Direction.NORTH));
+			pawnMoves = posCon.findsWhitePawnPositionAll();
 		} else if(color == Color.BLACK) {
-			pawnMoves.add(position.move(Direction.SOUTH));
+			pawnMoves = posCon.findsBlackPawnPositionAll();
 		}
 		return pawnMoves;
 	}

@@ -28,7 +28,7 @@ public class PositionController {
 		return positions;
 	}
 
-	public List<Position> findQueenPositionAll() {
+	public List<Position> findsQueenPositionAll() {
 		Direction[] everyDirection = Direction.everyDirection();
 		List<Position> positions = new ArrayList<Position>();
 		for (Direction direction : everyDirection) {
@@ -37,7 +37,7 @@ public class PositionController {
 		return positions;
 	}
 	
-	public List<Position> findKingPositionAll() {
+	public List<Position> findsKingPositionAll() {
 		Direction[] everyDirection = Direction.everyDirection();
 		List<Position> positions = new ArrayList<Position>();
 		for (Direction direction : everyDirection) {
@@ -48,4 +48,29 @@ public class PositionController {
 		}
 		return positions;
 	}
+	
+	public List<Position> findsWhitePawnPositionAll() {
+		int whiteStartY = 1;
+		List<Position> positions = new ArrayList<Position>();
+		Position movedPosition = position.move(Direction.NORTH);
+		positions.add(movedPosition);
+		if (position.getY() == whiteStartY) {
+			positions.add(movedPosition.move(Direction.NORTH));
+		}
+		
+		return positions;
+	}
+	
+	public List<Position> findsBlackPawnPositionAll() {
+		int blackStartY = 6;
+		List<Position> positions = new ArrayList<Position>();
+		Position movedPosition = position.move(Direction.SOUTH);
+		positions.add(movedPosition);
+		if (position.getY() == blackStartY) {
+			positions.add(movedPosition.move(Direction.SOUTH));
+		}
+		
+		return positions;
+	}
+	
 }

@@ -31,7 +31,7 @@ public class PositionControllerTest extends TestCase {
 		Position position = new Position(startX, startY);
 		
 		PositionController controller = new PositionController(position);
-		List<Position> positions = controller.findQueenPositionAll();
+		List<Position> positions = controller.findsQueenPositionAll();
 		assertEquals(25, positions.size());
 	}
 	
@@ -41,8 +41,18 @@ public class PositionControllerTest extends TestCase {
 		Position position = new Position(startX, startY);
 		
 		PositionController controller = new PositionController(position);
-		List<Position> positions = controller.findKingPositionAll();
-		System.out.println(positions);
+		List<Position> positions = controller.findsKingPositionAll();
 		assertEquals(3, positions.size());
+	}
+	
+	public void testFindPawnPositionAll() throws Exception {
+		int startX = 3;
+		int startY = 1;
+		Position position = new Position(startX, startY);
+		
+		PositionController controller = new PositionController(position);
+		List<Position> positions = controller.findsWhitePawnPositionAll();
+		System.out.println(positions);
+		assertEquals(2, positions.size());
 	}
 }
