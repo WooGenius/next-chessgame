@@ -72,5 +72,17 @@ public class PositionController {
 		
 		return positions;
 	}
+
+	public List<Position> findsKnightPositionAll() {
+		Direction[] knightDirection = Direction.knightDirection();
+		List<Position> positions = new ArrayList<Position>();
+		for (Direction direction : knightDirection) {
+			Position movedPosition = position.move(direction);
+			if (movedPosition.isValid()) {
+				positions.add(movedPosition);
+			}
+		}
+		return positions;
+	}
 	
 }
