@@ -36,4 +36,16 @@ public class PositionController {
 		}
 		return positions;
 	}
+	
+	public List<Position> findKingPositionAll() {
+		Direction[] everyDirection = Direction.everyDirection();
+		List<Position> positions = new ArrayList<Position>();
+		for (Direction direction : everyDirection) {
+			Position movedPosition = position.move(direction);
+			if (movedPosition.isValid()) {
+				positions.add(movedPosition);				
+			}
+		}
+		return positions;
+	}
 }

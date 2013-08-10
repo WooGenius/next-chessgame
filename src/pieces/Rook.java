@@ -1,6 +1,5 @@
 package pieces;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Rook extends Piece {
@@ -12,7 +11,6 @@ public class Rook extends Piece {
 	List<Position> getPossibleMoves() {
 		PositionController posCon = new PositionController(position);
 		List<Position> rookMoves = posCon.findsLinearPositionAll();
-		
 		return rookMoves;
 	}
 }
