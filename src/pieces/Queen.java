@@ -10,6 +10,9 @@ public class Queen extends Piece {
 
 	@Override
 	List<Position> getPossibleMoves() {
-		return null;
+		PositionController posCon = new PositionController(position);
+		List<Position> queenMoves = posCon.findsDiagonalPositionAll();
+		queenMoves.addAll(posCon.findsLinearPositionAll());
+		return queenMoves;
 	}
 }
