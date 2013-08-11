@@ -32,8 +32,26 @@ public class BoardTest extends TestCase {
 			createEmptyRank() +
 			RankTest.WHITE_PAWN_RANK + Board.NEW_LINE +
 			RankTest.WHITE_EXCEPT_PAWN_RANK + Board.NEW_LINE;
-		assertEquals(expected, board.generateBoard());
 		System.out.println(board.generateBoard());
+		assertEquals(expected, board.generateBoard());
+	}
+	
+	public void testPrintHTML() throws Exception {
+		board.initialize();
+		board.generator = new GenerateHTMLBoard();
+		String expected = 
+				"<html>" + "<body>" +
+				RankTest.BLACK_EXCEPT_PAWN_RANK + Board.NEW_LINE +
+				RankTest.BLACK_PAWN_RANK + Board.NEW_LINE +
+				createEmptyRank() + 
+				createEmptyRank() + 
+				createEmptyRank() + 
+				createEmptyRank() +
+				RankTest.WHITE_PAWN_RANK + Board.NEW_LINE +
+				RankTest.WHITE_EXCEPT_PAWN_RANK + Board.NEW_LINE +
+				"</body>" + "</html>";
+		System.out.println(board.generateBoard());
+		assertEquals(expected, board.generateBoard());
 	}
 	
 	private String createEmptyRank() {
