@@ -3,7 +3,7 @@ package chess;
 import java.util.ArrayList;
 import java.util.List;
 
-import pieces.Piece;
+import pieces.PieceOperations;
 import pieces.Position;
 
 public class Board {
@@ -42,12 +42,12 @@ public class Board {
 		}
 	}
 
-	Piece findPiece(String xy) {
+	PieceOperations findPiece(String xy) {
 		Position position = new Position(xy);
 		return findPiece(position);
 	}
 
-	Piece findPiece(Position position) {
+	PieceOperations findPiece(Position position) {
 		Rank rank = ranks.get(position.getY());
 		return rank.findPiece(position);
 	}
@@ -57,8 +57,8 @@ public class Board {
 	}
 
 	void movePiece(Position source, Position target) {
-		Piece targetPiece = findPiece(source);
-		Piece sourcePiece = targetPiece.leave();
+		PieceOperations targetPiece = findPiece(source);
+		PieceOperations sourcePiece = targetPiece.leave();
 		
 		if(invalidMove(source, target)) {
 			return;

@@ -3,7 +3,7 @@ package chess;
 import junit.framework.TestCase;
 import pieces.Empty;
 import pieces.Pawn;
-import pieces.Piece;
+import pieces.PieceOperations;
 import pieces.Piece.Color;
 import pieces.Position;
 
@@ -54,7 +54,7 @@ public class BoardTest extends TestCase {
 	public void testMovePiece() throws Exception {
 		board.initialize();
 		Position source = new Position("a2");
-		Piece sourcePiece = board.findPiece(source);
+		PieceOperations sourcePiece = board.findPiece(source);
 		assertEquals(new Pawn(Color.WHITE, source), sourcePiece);
 		
 		Position target = new Position("a3");
@@ -68,8 +68,8 @@ public class BoardTest extends TestCase {
 		board.initialize();
 		Position source = new Position("a3");
 		Position target = new Position("a2");
-		Piece emptyPiece = board.findPiece(source);
-		Piece targetPiece = board.findPiece(target);
+		PieceOperations emptyPiece = board.findPiece(source);
+		PieceOperations targetPiece = board.findPiece(target);
 		
 		board.movePiece(source, target);
 		assertEquals(new Empty(Color.NOCOLOR, source), emptyPiece);
@@ -84,7 +84,7 @@ public class BoardTest extends TestCase {
 		int invalidY = -1;
 		Position source = new Position("a2");
 		Position target = new Position(invalidX, invalidY);
-		Piece sourcePiece = board.findPiece(source);
+		PieceOperations sourcePiece = board.findPiece(source);
 		
 		board.movePiece(source, target);
 		assertEquals(new Pawn(Color.WHITE, source), sourcePiece);
@@ -95,8 +95,8 @@ public class BoardTest extends TestCase {
 		board.initialize();
 		Position source = new Position("a2");
 		Position target = new Position("b2");
-		Piece sourcePiece = board.findPiece(source);
-		Piece targetPiece = board.findPiece(target);
+		PieceOperations sourcePiece = board.findPiece(source);
+		PieceOperations targetPiece = board.findPiece(target);
 		
 		board.movePiece(source, target);
 		assertEquals(new Pawn(Color.WHITE, source), sourcePiece);
@@ -108,8 +108,8 @@ public class BoardTest extends TestCase {
 		board.initialize();
 		Position source = new Position("a2");
 		Position target = new Position("b3");
-		Piece sourcePiece = board.findPiece(source);
-		Piece targetPiece = board.findPiece(target);
+		PieceOperations sourcePiece = board.findPiece(source);
+		PieceOperations targetPiece = board.findPiece(target);
 		
 		board.movePiece(source, target);
 		assertEquals(new Pawn(Color.WHITE, source), sourcePiece);

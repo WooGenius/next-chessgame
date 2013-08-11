@@ -3,6 +3,7 @@ package pieces;
 import java.util.ArrayList;
 import java.util.List;
 
+import pieces.Piece.Color;
 import chess.Board;
 
 public class Position {
@@ -86,10 +87,4 @@ public class Position {
 			return false;
 		return true;
 	}
-
-	@Override
-	public String toString() {
-		return "Position [x=" + x + ", y=" + y + "]";
-	}
-
 }
